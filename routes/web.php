@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('/posts', \App\Http\Controllers\PostsController::class);
+Route::get('/posts', [\App\Http\Controllers\PostsController::class, 'index']);
+//Route::post('/posts', [\App\Http\Controllers\PostsController::class, 'store']);
+//Route::get('/posts/create', [\App\Http\Controllers\PostsController::class, 'create']);
+Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostsController::class, 'edit']);
+Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update']);
+//Route::delete('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'destroy']);
 
 require __DIR__.'/auth.php';
