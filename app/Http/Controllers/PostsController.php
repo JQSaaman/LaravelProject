@@ -31,4 +31,24 @@ class PostsController extends Controller
 
         return redirect('/posts');
     }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store()
+    {
+        request()->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        Post::create([
+            'title' => request('title'),
+            'content' => request('content')
+        ]);
+
+        return redirect('/posts');
+    }
 }
