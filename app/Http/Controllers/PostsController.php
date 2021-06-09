@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\True_;
 
 class PostsController extends Controller
 {
@@ -14,7 +15,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        dd(Posts::all());
+        $posts = (Post::all());
+
+        return view('posts.index', [ 'posts' => $posts]);
     }
 
     /**
@@ -41,10 +44,10 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Posts  $posts
+     * @param  \App\Models\Post  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show(Post $posts)
     {
         //
     }
@@ -52,22 +55,22 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Posts  $posts
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Posts  $posts
+     * @param  \App\Models\Post  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, Post $posts)
     {
         //
     }
