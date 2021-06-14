@@ -27,6 +27,7 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                         <a href="{{ url('/posts') }}" class="text-sm text-gray-700 underline">Posts</a>
+                        <a href="{{ url('/form') }}" class="text-sm text-gray-700 underline">Form</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 

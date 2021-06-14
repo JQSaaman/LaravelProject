@@ -8,7 +8,10 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <div>
+            <p>Please make use of a password manager for a safe experience!</p>
+            <hr>
+        </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

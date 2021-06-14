@@ -29,6 +29,20 @@ Route::get('/dashboard', function () {
 //Route::put('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'update']);
 //Route::delete('/posts/{post}', [\App\Http\Controllers\PostsController::class, 'destroy']);
 
+Route::resource('/form', \App\Http\Controllers\FormController::class);
 Route::resource('/posts', PostsController::class);
+Route::get('/mail-send', [\App\Http\Controllers\WelcomeController::class, 'mailSend']);
+
+Route::get('send-mail', function () {
+
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
+
+    \Mail::to('justinsaaman@gmail.com')->send(new \App\Mail\MyTestMail($details));
+
+    dd("Email is Sent.");
+});
 
 require __DIR__.'/auth.php';
