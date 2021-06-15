@@ -22,7 +22,8 @@ class PostsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->word(),
+            'content' => $this->faker->paragraph(),
         ];
     }
 }
