@@ -35,7 +35,7 @@ class PostTest extends TestCase
         $user = User::factory()->create();
         $route = route('posts.store');
         $requestBody = [
-            'title' => 'Test',
+            'title' => '',
             'content' => 'test content',
         ];
 
