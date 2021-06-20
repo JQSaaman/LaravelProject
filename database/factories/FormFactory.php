@@ -22,7 +22,11 @@ class FormFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->name(),
+            'username' => $this->faker->name(),
+            'city' => $this->faker->countryCode(),
+            'zip' => $this->faker->postcode(),
         ];
     }
 }

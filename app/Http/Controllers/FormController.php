@@ -35,7 +35,13 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Form::create([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'username' => request('username'),
+            'city' => request('city'),
+            'zip' => request('zip'),
+        ]);
     }
 
     /**
@@ -69,7 +75,13 @@ class FormController extends Controller
      */
     public function update(Request $request, Form $form)
     {
-        //
+        $form::updated([
+            'first_name' => request('first_name'),
+            'last_name' => request('last_name'),
+            'username' => request('username'),
+            'city' => request('city'),
+            'zip' => request('zip'),
+        ]);
     }
 
     /**
