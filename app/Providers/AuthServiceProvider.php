@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::after(function ($user){
-            if($user->email === 'test@test'){
+            if($user->email === 'test@test1'){
                 return true;
             }
         });
